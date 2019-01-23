@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="502.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dmproject.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <TabPane id="f1" prefHeight="590.0" prefWidth="844.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab id="P_preprocessus" text="Preprocessus">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="576.0" prefWidth="865.0">
+                     <children>
+                        <Button id="B_openFile" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#openFileAction" prefHeight="25.0" prefWidth="127.0" text="Open file . . ." />
+                        <Button id="B_generate" disable="true" layoutX="180.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="Generate . . ." />
+                        <Button id="B_undo" disable="true" layoutX="364.0" layoutY="22.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Undo" />
+                        <Button id="B_edit" disable="true" layoutX="536.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="Edit . . ." />
+                        <Button id="B_save" disable="true" layoutX="694.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" text="Save . . ." />
+                        <TitledPane id="P_relation" animated="false" layoutX="14.0" layoutY="67.0" prefHeight="116.0" prefWidth="332.0" text="Current realation">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="106.0" prefWidth="275.0">
+                                 <children>
+                                    <Label layoutX="24.0" layoutY="14.0" text="Relation :" />
+                                    <Label layoutX="24.0" layoutY="37.0" text="Instances :" />
+                                    <Label layoutX="24.0" layoutY="59.0" text="Attributes :" />
+                                    <Label id="L_relation" fx:id="L_relation" layoutX="117.0" layoutY="14.0" text="None" />
+                                    <Label id="L_instances" fx:id="L_instances" layoutX="117.0" layoutY="37.0" text="None" />
+                                    <Label id="L_attributes" fx:id="L_attributes" layoutX="117.0" layoutY="59.0" text="None" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane id="P_selectedAttribute" animated="false" layoutX="364.0" layoutY="67.0" prefHeight="267.0" prefWidth="466.0" text="Selected attribute">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="63.0" layoutY="14.0" text="Name :" />
+                                    <Label layoutX="60.0" layoutY="41.0" text="Missing :" />
+                                    <Label layoutX="60.0" layoutY="66.0" text="Distinct :" />
+                                    <Label layoutX="250.0" layoutY="15.0" text="Type :" />
+                                    <Label id="L_name" fx:id="L_name" layoutX="129.0" layoutY="14.0" text="None" />
+                                    <Label id="L_missing" fx:id="L_missing" layoutX="130.0" layoutY="41.0" text="None" />
+                                    <Label id="L_distinct" fx:id="L_distinct" layoutX="136.0" layoutY="66.0" text="None" />
+                                    <Label id="L_type" fx:id="L_type" layoutX="305.0" layoutY="15.0" text="None" />
+                                    <TableView id="T_selectedAttribite" fx:id="T_selectedAttribite" layoutX="30.0" layoutY="95.0" prefHeight="138.0" prefWidth="404.0" />
+                                    <Label id="L_sym" fx:id="L_sym" layoutX="339.0" layoutY="49.0" prefHeight="16.0" prefWidth="88.0" />
+                                    <Label layoutX="222.0" layoutY="49.0" text="Conclusion:" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane id="P_histogram" fx:id="P_histogram" animated="false" layoutX="364.0" layoutY="341.0" prefHeight="213.0" prefWidth="467.0" text="Histogram">
+                          <content>
+                            <AnchorPane id="P_histogram" minHeight="0.0" minWidth="0.0" prefHeight="169.0" prefWidth="463.0" />
+                          </content>
+                        </TitledPane>
+                        <TitledPane id="P_attributes" animated="false" layoutX="14.0" layoutY="190.0" prefHeight="330.0" prefWidth="333.0" text="Attributes">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView id="T_attributes" fx:id="T_attributes" editable="true" onMouseClicked="#getSelectedAttribute" prefHeight="323.0" prefWidth="329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <Button id="B_openFile" layoutX="97.0" layoutY="528.0" mnemonicParsing="false" onAction="#draw" prefHeight="25.0" prefWidth="127.0" text="BOX PLOT" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab id="P_filecontent" fx:id="P_filecontent" disable="true" text="File content">
+            <content>
+              <AnchorPane id="f1" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="dataset" layoutX="35.0" layoutY="35.0" prefHeight="414.0" prefWidth="781.0" />
+                        <Button id="B_puredata" fx:id="B_puredata" layoutX="53.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#fillPureData" prefHeight="25.0" prefWidth="161.0" text="PURE DATA" />
+                        <Button id="B_codification" fx:id="B_codification" layoutX="458.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#fillCodification" prefHeight="25.0" prefWidth="149.0" text="CODIFICATION" />
+                        <Button id="B_missingvalues" fx:id="B_missingvalues" layoutX="265.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#fillMissingValues" prefHeight="25.0" prefWidth="152.0" text="MISSING VALUES" />
+                        <Button id="B_normalisation" fx:id="B_normalisation" layoutX="645.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#fillNormalisation" prefHeight="25.0" prefWidth="142.0" text="Normalisation" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab id="P_apriori" fx:id="P_apriori" disable="true" text="Apriori">
+               <content>
+                  <AnchorPane id="f1" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane animated="false" layoutX="33.0" layoutY="188.0" prefHeight="332.0" prefWidth="158.0" text="Items">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_items" fx:id="TA_items" prefHeight="307.0" prefWidth="157.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="202.0" layoutY="188.0" prefHeight="332.0" prefWidth="178.0" text="Transactions">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_transactions" fx:id="TA_transactions" prefHeight="307.0" prefWidth="176.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="392.0" layoutY="366.0" prefHeight="154.0" prefWidth="418.0" text="Association rules">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_associationrules" fx:id="TA_associationrules" prefHeight="128.0" prefWidth="416.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="391.0" layoutY="188.0" prefHeight="168.0" prefWidth="418.0" text="Frequent items">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="191.0">
+                                 <children>
+                                    <TextArea id="TA_freqitems" fx:id="TA_freqitems" prefHeight="142.0" prefWidth="416.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="33.0" layoutY="26.0" prefHeight="149.0" prefWidth="776.0" text="untitled">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="104.0" prefWidth="766.0">
+                                 <children>
+                                    <Label layoutX="36.0" layoutY="53.0" text="minimum Confidence" />
+                                    <Button id="B_startapriori" fx:id="B_startapriori" layoutX="516.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#AprioriAlgorithm" prefHeight="25.0" prefWidth="187.0" text="Start" />
+                                    <Label layoutX="36.0" layoutY="18.0" text="minimum Support" />
+                                    <TextField id="TF_minsupport" fx:id="TF_minsupport" layoutX="164.0" layoutY="14.0" prefHeight="25.0" prefWidth="114.0" />
+                                    <TextField id="TF_minconfidence" fx:id="TF_minconfidence" layoutX="163.0" layoutY="49.0" prefHeight="25.0" prefWidth="115.0" promptText="0 - 100" />
+                                    <Label layoutX="407.0" layoutY="18.0" text="Number of items" />
+                                    <Label layoutX="407.0" layoutY="53.0" text="Number of transactions" />
+                                    <Label id="L_nbitems" fx:id="L_nbitems" layoutX="555.0" layoutY="18.0" text="-" />
+                                    <Label id="L_nbtransactions" fx:id="L_nbtransactions" layoutX="555.0" layoutY="53.0" text="-" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <Label id="L_timeapriori" fx:id="L_timeapriori" layoutX="367.0" layoutY="530.0" text="Time : " />
+                        <Label layoutX="414.0" layoutY="530.0" text="--:--:--:--" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab id="P_knn" fx:id="P_knn" disable="true" text="KNN">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane animated="false" layoutX="14.0" layoutY="14.0" prefHeight="78.0" prefWidth="817.0" text="Settings">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="60.0" prefWidth="815.0">
+                                 <children>
+                                    <Label layoutX="301.0" layoutY="18.0" text="value of K" />
+                                    <Label layoutX="14.0" layoutY="18.0" text="Model size (%)" />
+                                    <Button id="B_startknn" fx:id="B_startknn" layoutX="597.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#KnnAlgorithm" prefHeight="25.0" prefWidth="162.0" text="Start" />
+                                    <TextField id="TF_modelsize" fx:id="TF_modelsize" layoutX="95.0" layoutY="14.0" />
+                                    <TextField id="TF_k" fx:id="TF_k" layoutX="371.0" layoutY="14.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="14.0" layoutY="281.0" prefHeight="241.0" prefWidth="629.0" text="Test set">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_train" fx:id="TA_train" layoutY="1.0" prefHeight="214.0" prefWidth="626.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="14.0" layoutY="98.0" prefHeight="177.0" prefWidth="816.0" text="Train set">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_model" fx:id="TA_model" prefHeight="151.0" prefWidth="813.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="649.0" layoutY="281.0" prefHeight="241.0" prefWidth="181.0" text="Classification">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_class" fx:id="TA_class" prefHeight="215.0" prefWidth="179.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <Label layoutX="322.0" layoutY="530.0" text="Error ratio" />
+                        <Label id="L_errorratio" fx:id="L_errorratio" layoutX="395.0" layoutY="530.0" text="-" />
+                        <Label layoutX="577.0" layoutY="530.0" text="Time : " />
+                        <Label id="L_timeknn" fx:id="L_timeknn" layoutX="626.0" layoutY="530.0" text="--:--:--:--" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab id="P_dbscan" fx:id="P_dbscan" disable="true" text="Dbscan">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane animated="false" layoutX="29.0" layoutY="14.0" prefHeight="88.0" prefWidth="784.0" text="Settings">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField id="TF_minpoints" fx:id="TF_minpoints" layoutX="102.0" layoutY="10.0" prefHeight="25.0" prefWidth="112.0" />
+                                    <Label layoutX="25.0" layoutY="14.0" text="Min points" />
+                                    <Button id="B_startdbscan" fx:id="B_startdbscan" layoutX="547.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#DbscanAlgorithm" prefHeight="25.0" prefWidth="185.0" text="Start" />
+                                    <TextField id="TF_radius" fx:id="TF_radius" layoutX="358.0" layoutY="10.0" prefHeight="25.0" prefWidth="112.0" />
+                                    <Label layoutX="299.0" layoutY="14.0" text="radius" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="30.0" layoutY="122.0" prefHeight="319.0" prefWidth="782.0" text="Result ">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_resultdbscan" fx:id="TA_resultdbscan" layoutY="-1.0" prefHeight="295.0" prefWidth="780.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <Label layoutX="334.0" layoutY="539.0" text="Time :" />
+                        <Label id="L_timedbscan" fx:id="L_timedbscan" layoutX="381.0" layoutY="539.0" text="--:--:--:--" />
+                        <TitledPane animated="false" layoutX="30.0" layoutY="452.0" prefHeight="73.0" prefWidth="368.0" text="IntraClass">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_intraclass" fx:id="TA_intraclass" layoutX="2.0" layoutY="1.0" prefHeight="45.0" prefWidth="363.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </TextArea>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="417.0" layoutY="452.0" prefHeight="73.0" prefWidth="394.0" text="InterClass">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea id="TA_interclass" fx:id="TA_interclass" layoutX="-1.0" layoutY="1.0" prefHeight="45.0" prefWidth="393.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </TextArea>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+    </children>
+</AnchorPane>
